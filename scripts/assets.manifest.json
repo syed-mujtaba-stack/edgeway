@@ -1,0 +1,30 @@
+{
+  "baseUrl": "https://cavxvcyaaamqnirtomci.supabase.co/storage/v1/object/public/site-assets",
+  "note": "Binary files are not part of the text-only Vercel upload; the prebuild step downloads any that are missing.",
+  "files": [
+    "assets/fonts/gloock-latin.woff2",
+    "assets/fonts/instrument-sans-latin.woff2",
+    "assets/img/apple-touch-icon.png",
+    "assets/img/camera-install-1200.webp",
+    "assets/img/camera-install-2400.webp",
+    "assets/img/control-room-1200.webp",
+    "assets/img/control-room-2400.webp",
+    "assets/img/crest-96.png",
+    "assets/img/dispatch-1200.webp",
+    "assets/img/dispatch-2400.webp",
+    "assets/img/guard-jacket-1200.webp",
+    "assets/img/guard-jacket-2400.webp",
+    "assets/img/guard-line-1200.webp",
+    "assets/img/guard-line-2400.webp",
+    "assets/img/night-patrol-1200.webp",
+    "assets/img/night-patrol-2400.webp",
+    "assets/img/patrol-lightbar-1200.webp",
+    "assets/img/patrol-lightbar-2400.webp",
+    "favicon.ico",
+    "icons/apple-touch-icon.png",
+    "icons/favicon-32.png",
+    "icons/icon-192.png",
+    "icons/icon-512.png",
+    "icons/maskable-512.png"
+  ]
+}

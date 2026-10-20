@@ -1,0 +1,15 @@
+node_modules
+dist
+.env
+.env.local
+*.local
+.DS_Store
+.vite
+
+# Capacitor / Android build output
+android/app/build/
+android/.gradle/
+android/local.properties
+android/build/
+android/app/src/main/assets/public/
+android/capacitor-cordova-android-plugins/src/main/libs/
