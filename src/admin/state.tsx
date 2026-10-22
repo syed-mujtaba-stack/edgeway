@@ -28,6 +28,8 @@ type AdminCtx = {
   user: AdminUser | null;
   ready: boolean;
   signIn: (email: string, password: string) => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
+  updatePassword: (password: string) => Promise<void>;
   signOut: () => Promise<void>;
 
   inquiries: Inquiry[];
@@ -218,6 +220,10 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     setUser(next);
   }, []);
 
+  const resetPassword = useCallback((email: string) => repo().resetPassword(email), []);
+
+  const updatePassword = useCallback((password: string) => repo().updatePassword(password), []);
+
   const signOut = useCallback(async () => {
     await repo().signOut();
     setUser(null);
@@ -228,6 +234,8 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     user,
     ready,
     signIn,
+    resetPassword,
+    updatePassword,
     signOut,
     inquiries,
     loading,

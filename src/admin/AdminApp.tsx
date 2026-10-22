@@ -10,6 +10,7 @@ import { InquiryDetail } from "@/admin/pages/InquiryDetail";
 import { Images } from "@/admin/pages/Images";
 import { Notifications } from "@/admin/pages/Notifications";
 import { Settings } from "@/admin/pages/Settings";
+import { Profile } from "@/admin/pages/Profile";
 import "@/admin/admin.css";
 
 /** Point the installed PWA at the admin manifest + navy status bar while inside /admin. */
@@ -47,6 +48,7 @@ export function AdminApp() {
             <Route path="images" element={<Images />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Route>
       </Routes>

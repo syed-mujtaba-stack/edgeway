@@ -27,6 +27,8 @@ export interface Repo {
   /* auth ------------------------------------------------------------------ */
   getSession(): Promise<AdminUser | null>;
   signIn(email: string, password: string): Promise<AdminUser>;
+  resetPassword(email: string): Promise<void>;
+  updatePassword(password: string): Promise<void>;
   signOut(): Promise<void>;
 
   /* inquiries ------------------------------------------------------------- */

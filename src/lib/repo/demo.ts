@@ -47,6 +47,7 @@ type DemoState = {
   images: Record<string, ImageMeta>;
   settings: BusinessSettings;
   session: AdminUser | null;
+  password: string | null;
   devices: PushDevice[];
 };
 
@@ -74,6 +75,7 @@ function blankState(): DemoState {
     images: {},
     settings: { ...defaultSettings },
     session: null,
+    password: null,
     devices: [],
   };
 }
@@ -235,11 +237,22 @@ export function createDemoRepo(): Repo {
       if (!email.trim() || password.trim().length < 4) {
         throw new Error("Enter your email and a password of at least 4 characters.");
       }
+      const savedPassword = state().password;
+      if (savedPassword && password !== savedPassword) throw new Error("Invalid email or password.");
       const session = { ...DEMO_USER, email: email.trim() };
       const s = state();
       s.session = session;
       write(s);
       return session;
+    },
+    async resetPassword(email) {
+      if (!email.trim()) throw new Error("Enter your email address.");
+    },
+    async updatePassword(password) {
+      if (password.length < 8) throw new Error("Password must be at least 8 characters.");
+      const s = state();
+      s.password = password;
+      write(s);
     },
     async signOut() {
       const s = state();

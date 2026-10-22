@@ -10,8 +10,11 @@ Everything the client needs day to day. No technical knowledge required.
 2. Email + password (created for you in Supabase → Authentication → Users).
 3. On a phone, install the app first (section 5) — it opens full-screen and can notify you.
 
-Forgot the password? Use “reset password” on the sign-in screen, or ask your developer to
-re-send an invite.
+Forgot the password? Select “Forgot password?” on the sign-in screen and use the emailed reset
+link. After signing in, open **Settings → Personal profile** to change the password again.
+
+The **Personal profile** page shows the signed-in account and lets you set a new password. In demo
+mode, password changes are stored in the current browser only and no email is sent.
 
 ---
 

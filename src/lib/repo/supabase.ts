@@ -140,6 +140,17 @@ export function createSupabaseRepo(): Repo {
       return requireUser();
     },
 
+    async resetPassword(email) {
+      const redirectTo = `${window.location.origin}/admin/profile?reset=1`;
+      const { error } = await client.auth.resetPasswordForEmail(email.trim(), { redirectTo });
+      if (error) throw new Error(error.message);
+    },
+
+    async updatePassword(password) {
+      const { error } = await client.auth.updateUser({ password });
+      if (error) throw new Error(error.message);
+    },
+
     async signOut() {
       await client.auth.signOut();
     },

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import type { BusinessSettings } from "@/types/db";
 import { repo, isDemo } from "@/lib/repo";
 import { download } from "@/lib/format";
@@ -114,6 +115,9 @@ export function Settings() {
           <button className="btn btn--outline btn--sm" type="button" onClick={exportAll}>
             Export all inquiries (JSON)
           </button>
+          <Link className="btn btn--outline btn--sm" to="/admin/profile">
+            Personal profile
+          </Link>
           <button className="btn btn--outline btn--sm" type="button" onClick={() => void signOut()}>
             Sign out
           </button>

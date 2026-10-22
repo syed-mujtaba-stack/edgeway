@@ -20,6 +20,7 @@ const navItems = [
   { to: "/admin/images", label: "Images", icon: IconImage },
   { to: "/admin/notifications", label: "Notifications", icon: IconBell },
   { to: "/admin/settings", label: "Settings", icon: IconSettings },
+  { to: "/admin/profile", label: "Profile", icon: IconSettings },
 ];
 
 const mobileItems = navItems.slice(0, 4);
@@ -30,6 +31,7 @@ const titles: Record<string, { title: string; sub: string }> = {
   "/admin/images": { title: "Images", sub: "Update the imagery on the public site" },
   "/admin/notifications": { title: "Notifications", sub: "Push alerts for new inquiries" },
   "/admin/settings": { title: "Settings", sub: "Business details and account" },
+  "/admin/profile": { title: "Personal profile", sub: "Account details and password" },
 };
 
 function Badge({ count }: { count: number }) {

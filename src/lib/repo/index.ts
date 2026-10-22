@@ -14,6 +14,8 @@ let instance: Repo | null = null;
 const ASYNC_METHODS = [
   "getSession",
   "signIn",
+  "resetPassword",
+  "updatePassword",
   "signOut",
   "listInquiries",
   "getInquiry",
