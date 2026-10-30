@@ -107,16 +107,18 @@ export function createSupabaseRepo(): Repo {
   const requireUser = async (): Promise<AdminUser> => {
     const { data, error } = await client.auth.getUser();
     if (error || !data.user) throw new Error("Not signed in");
-    const { data: profile } = await client
+    const { data: profile, error: profileError } = await client
       .from("admins")
       .select("full_name,role")
       .eq("id", data.user.id)
       .maybeSingle();
+    if (profileError) throw new Error(`Could not verify admin profile: ${profileError.message}`);
+    if (!profile) throw new Error("Your account is not authorized for the admin dashboard.");
     return {
       id: data.user.id,
       email: data.user.email ?? "",
-      name: (profile as Row | null)?.full_name ?? "Admin",
-      role: ((profile as Row | null)?.role ?? "admin") as AdminUser["role"],
+      name: (profile as Row).full_name ?? "Admin",
+      role: ((profile as Row).role ?? "admin") as AdminUser["role"],
     };
   };
 
@@ -441,16 +443,18 @@ export function createSupabaseRepo(): Repo {
     },
 
     async saveSettings(settings) {
-      const { error } = await client.from("settings").upsert({
-        id: 1,
-        phone_display: settings.phoneDisplay,
-        phone_href: settings.phoneHref,
-        email: settings.email,
-        address_line1: settings.addressLine1,
-        address_line2: settings.addressLine2,
-        ppo: settings.ppo,
-        notify_email: settings.notifyEmail,
-      });
+      const { error } = await client
+        .from("settings")
+        .update({
+          phone_display: settings.phoneDisplay,
+          phone_href: settings.phoneHref,
+          email: settings.email,
+          address_line1: settings.addressLine1,
+          address_line2: settings.addressLine2,
+          ppo: settings.ppo,
+          notify_email: settings.notifyEmail,
+        })
+        .eq("id", 1);
       if (error) throw new Error(error.message);
     },
   };

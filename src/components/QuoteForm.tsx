@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
-  company,
   coverageTimings,
   quoteServices,
   siteTypeExtras,
   siteTypeGroups,
 } from "@/data/site";
+import { useSiteCompany } from "@/context/SiteSettings";
 import { Arrow } from "@/components/primitives";
 import { OfflineQueuedError, submitInquiry } from "@/lib/inquiries";
 
@@ -55,6 +55,7 @@ const messages: Record<Field, string> = {
 type Status = { tone: "ok" | "error"; node: React.ReactNode } | null;
 
 export function QuoteForm() {
+  const company = useSiteCompany();
   const [searchParams] = useSearchParams();
   const [values, setValues] = useState<Values>(emptyValues);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});

@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { company, mobileNav, primaryNav } from "@/data/site";
+import { mobileNav, primaryNav } from "@/data/site";
+import { useSiteCompany } from "@/context/SiteSettings";
 import { useMediaQuery, useScrolled } from "@/hooks";
 import { ResponsiveImage } from "@/components/primitives";
 import { images } from "@/data/site";
 
 export function TopBar() {
+  const company = useSiteCompany();
+
   return (
     <div className="topbar on-dark">
       <div className="container topbar__inner">
@@ -18,6 +21,7 @@ export function TopBar() {
 }
 
 export function Header() {
+  const company = useSiteCompany();
   const { pathname } = useLocation();
   const scrolled = useScrolled(8);
   const isDesktop = useMediaQuery("(min-width: 52rem)");

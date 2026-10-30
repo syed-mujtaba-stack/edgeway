@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { company, images } from "@/data/site";
+import { images } from "@/data/site";
+import { useSiteCompany } from "@/context/SiteSettings";
 import { ResponsiveImage } from "@/components/primitives";
 
 const serviceLinks = [
@@ -15,6 +16,8 @@ const companyLinks = [
 ];
 
 export function Footer() {
+  const company = useSiteCompany();
+
   return (
     <footer className="footer on-dark">
       <div className="container">

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {
   approachSteps,
   assurePoints,
-  company,
   dispatchPoints,
   faqs,
   images,
@@ -12,8 +11,11 @@ import { Seo } from "@/lib/seo";
 import { FAQList, NavArrow, ResponsiveImage, Reveal } from "@/components/primitives";
 import { ServicesTabs } from "@/components/ServicesTabs";
 import { Cta } from "@/components/Cta";
+import { useSiteCompany } from "@/context/SiteSettings";
 
 export function Home() {
+  const company = useSiteCompany();
+
   return (
     <>
       <Seo

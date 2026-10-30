@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { company } from "@/data/site";
 import { Seo } from "@/lib/seo";
 import { Reveal } from "@/components/primitives";
+import { useSiteCompany } from "@/context/SiteSettings";
 
 export function NotFound() {
+  const company = useSiteCompany();
+
   return (
     <>
       <Seo

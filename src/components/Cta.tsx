@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import { company, images } from "@/data/site";
+import { images } from "@/data/site";
+import { useSiteCompany } from "@/context/SiteSettings";
 import { ResponsiveImage, Reveal } from "@/components/primitives";
 
 /** The closing call-to-action band, shared by every page. */
 export function Cta() {
+  const company = useSiteCompany();
+
   return (
     <section className="cta" aria-labelledby="cta-title">
       <div className="cta__bg" aria-hidden="true">

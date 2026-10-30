@@ -1,9 +1,12 @@
-import { company, faqs } from "@/data/site";
+import { faqs } from "@/data/site";
 import { Seo } from "@/lib/seo";
 import { FAQList, Reveal } from "@/components/primitives";
 import { QuoteForm } from "@/components/QuoteForm";
+import { useSiteCompany } from "@/context/SiteSettings";
 
 export function Contact() {
+  const company = useSiteCompany();
+
   return (
     <>
       <Seo
